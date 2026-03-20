@@ -87,6 +87,9 @@ print('ALready cleaned text successfully')
 print("+++ Data type +++")
 print(df.dtypes)
 
+## Rename for export to sql
+df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_').str.replace('-', '_')
+
 ### Export New file for SQL ###
 df.to_csv("cleaned_data.csv", index=False, encoding='utf-8-sig')
 print ("File upload!")
